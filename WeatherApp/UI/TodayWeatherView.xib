@@ -11,7 +11,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TodayWeatherView" customModule="WeatherApp" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="25D-Va-974"/>
+                <outlet property="currentTempLabel" destination="cMt-qC-UtC" id="2xa-I7-DDD"/>
                 <outlet property="locationLabel" destination="2ZM-fr-Evg" id="jGp-vb-axJ"/>
+                <outlet property="maxTempLabel" destination="ZvU-py-KjB" id="yew-5I-YEd"/>
+                <outlet property="minTempLabel" destination="foM-uE-YF6" id="2iQ-I7-XDf"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

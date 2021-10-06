@@ -9,13 +9,16 @@ import XCTest
 final class TodayWeatherVCTests: XCTestCase {
 
     func test_getWeatherCompletion_success_rendersTodayWeatherView() {
-        let viewModel = WeatherViewModel(location: "Location")
+        let viewModel = WeatherViewModel(location: "location", currentTemperature: 22, minTemperature: 18, maxTemperature: 37)
         let weatherService = WeatherServiceStub(viewModel: viewModel)
         let sut = TodayWeatherVC(weatherService: weatherService)
         
         sut.getWeatherCompletion(.success(viewModel))
         
         XCTAssertEqual(sut.weatherView.locationLabel.text, viewModel.location)
+        XCTAssertEqual(sut.weatherView.currentTempLabel.text, "\(viewModel.currentTemperature)")
+        XCTAssertEqual(sut.weatherView.minTempLabel.text, "\(viewModel.minTemperature)")
+        XCTAssertEqual(sut.weatherView.maxTempLabel.text, "\(viewModel.maxTemperature)")
     }
 }
 
