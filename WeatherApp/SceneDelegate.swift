@@ -12,7 +12,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let vc = TodayWeatherVC()
+        let vc = TodayWeatherVC(weatherService: TestWeatherService())
         let window = UIWindow(windowScene: windowScene)
         window.rootViewController = vc
         window.makeKeyAndVisible()
@@ -21,3 +21,9 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 }
 
+
+final class TestWeatherService: WeatherService {
+    func getTodayWeather(completion: @escaping (Result<WeatherViewModel, Error>) -> Void) {
+        
+    }
+}

@@ -6,7 +6,8 @@
 import UIKit
 
 final class TodayWeatherView: UIView {
-    @IBOutlet var contentView: UIView!
+    @IBOutlet private(set) var contentView: UIView!
+    @IBOutlet private(set) var locationLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -16,6 +17,10 @@ final class TodayWeatherView: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()
+    }
+    
+    func set(_ viewModel: WeatherViewModel) {
+        locationLabel.text = viewModel.location
     }
     
     private func commonInit() {
