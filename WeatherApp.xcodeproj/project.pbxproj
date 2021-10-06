@@ -13,6 +13,8 @@
 		F881E1C5270D7CEB00B31440 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F881E1C4270D7CEB00B31440 /* Assets.xcassets */; };
 		F881E1C8270D7CEB00B31440 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F881E1C6270D7CEB00B31440 /* LaunchScreen.storyboard */; };
 		F881E1D3270D7CEC00B31440 /* WeatherAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F881E1D2270D7CEC00B31440 /* WeatherAppTests.swift */; };
+		F881E1ED270D839300B31440 /* TodayWeatherView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F881E1EC270D839300B31440 /* TodayWeatherView.xib */; };
+		F881E1EF270D87EC00B31440 /* TodayWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F881E1EE270D87EC00B31440 /* TodayWeatherView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		F881E1CE270D7CEC00B31440 /* WeatherAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F881E1D2270D7CEC00B31440 /* WeatherAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppTests.swift; sourceTree = "<group>"; };
 		F881E1D4270D7CEC00B31440 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F881E1EC270D839300B31440 /* TodayWeatherView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodayWeatherView.xib; sourceTree = "<group>"; };
+		F881E1EE270D87EC00B31440 /* TodayWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayWeatherView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,8 @@
 			isa = PBXGroup;
 			children = (
 				F881E1BF270D7CEB00B31440 /* TodayWeatherVC.swift */,
+				F881E1EE270D87EC00B31440 /* TodayWeatherView.swift */,
+				F881E1EC270D839300B31440 /* TodayWeatherView.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -184,6 +190,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F881E1ED270D839300B31440 /* TodayWeatherView.xib in Resources */,
 				F881E1C8270D7CEB00B31440 /* LaunchScreen.storyboard in Resources */,
 				F881E1C5270D7CEB00B31440 /* Assets.xcassets in Resources */,
 			);
@@ -204,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F881E1C0270D7CEB00B31440 /* TodayWeatherVC.swift in Sources */,
+				F881E1EF270D87EC00B31440 /* TodayWeatherView.swift in Sources */,
 				F881E1BC270D7CEB00B31440 /* AppDelegate.swift in Sources */,
 				F881E1BE270D7CEB00B31440 /* SceneDelegate.swift in Sources */,
 			);
