@@ -14,6 +14,7 @@
                 <outlet property="currentTempLabel" destination="cMt-qC-UtC" id="2xa-I7-DDD"/>
                 <outlet property="dateLabel" destination="oPh-oL-nXp" id="VYU-7L-AxP"/>
                 <outlet property="descriptionLabel" destination="nGQ-EA-Hpa" id="HAT-fq-D9g"/>
+                <outlet property="iconImageView" destination="fje-Aj-nwK" id="PlB-MQ-x34"/>
                 <outlet property="locationLabel" destination="2ZM-fr-Evg" id="jGp-vb-axJ"/>
                 <outlet property="maxTempLabel" destination="ZvU-py-KjB" id="yew-5I-YEd"/>
                 <outlet property="minTempLabel" destination="foM-uE-YF6" id="2iQ-I7-XDf"/>

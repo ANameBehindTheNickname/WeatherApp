@@ -43,9 +43,21 @@ final class OpenWeatherAPI: WeatherAPI {
                 
                 let weather = weatherResponse.weather[0]
                 let main = weatherResponse.main
-                completion(Weather(location: weatherResponse.name, description: weather.description, currentTemperature: main.temp, minTemperature: main.temp_min, maxTemperature: main.temp_max))
+                completion(Weather(location: weatherResponse.name, iconId: weather.icon, description: weather.description, currentTemperature: main.temp, minTemperature: main.temp_min, maxTemperature: main.temp_max))
             case .failure(let error):
                 print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func getWeatherIconData(iconId: String, completion: @escaping (Data) -> Void) {
+        let url = URL(string: "https://openweathermap.org/img/wn/\(iconId)@2x.png")!
+        self.networkProvider.getData(from: url) { result in
+            switch result {
+            case .success(let iconData):
+                completion(iconData)
+            case .failure(let error):
+                print("Couldn't get image data - \(error.localizedDescription)")
             }
         }
     }
