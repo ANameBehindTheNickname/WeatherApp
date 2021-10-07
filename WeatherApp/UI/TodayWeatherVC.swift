@@ -11,9 +11,11 @@ final class TodayWeatherVC: UIViewController {
     }
     
     private var weatherService: WeatherService
+    private var locationProvider: LocationProvider
     
-    init(weatherService: WeatherService) {
+    init(weatherService: WeatherService, locationProvider: LocationProvider) {
         self.weatherService = weatherService
+        self.locationProvider = locationProvider
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -28,8 +30,11 @@ final class TodayWeatherVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        weatherService.getTodayWeather(completion: getWeatherCompletion)
+        if let city = locationProvider.city {
+            weatherService.getTodayWeather(for: city, completion: getWeatherCompletion)
+        } else {
+            weatherService.getTodayWeather(lat: locationProvider.lat, lon: locationProvider.lon, completion: getWeatherCompletion)
+        }
     }
     
     func getWeatherCompletion(_ result: Result<WeatherViewModel, Error>) -> Void {

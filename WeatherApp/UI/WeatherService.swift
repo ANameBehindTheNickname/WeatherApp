@@ -4,5 +4,6 @@
 //
 
 protocol WeatherService {
-    func getTodayWeather(completion: @escaping (Result<WeatherViewModel, Error>) -> Void)
+    func getTodayWeather(for city: String, completion: @escaping (Result<WeatherViewModel, Error>) -> Void)
+    func getTodayWeather(lat: String, lon: String, completion: @escaping (Result<WeatherViewModel, Error>) -> Void)
 }
