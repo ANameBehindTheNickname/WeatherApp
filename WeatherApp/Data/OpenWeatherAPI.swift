@@ -32,7 +32,7 @@ final class OpenWeatherAPI: WeatherAPI {
     func getCurrentWeather(completion: @escaping (Weather) -> Void) {
         let apiKey = "ENTER_YOUR_OPEN_WEATHER_API_KEY"
         let city = "ENTER_CITY"
-        let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=\(apiKey)")!
+        let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(city)&units=metric&appid=\(apiKey)")!
         networkProvider.getData(from: url) { result in
             switch result {
             case .success(let weatherData):

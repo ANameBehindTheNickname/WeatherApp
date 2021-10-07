@@ -23,10 +23,10 @@ final class WeatherViewModel {
     
     init(location: String, currentTemperature: Double, description: String, minTemperature: Double, maxTemperature: Double) {
         self.location = location
-        self.currentTemperature = "\(currentTemperature)"
+        self.currentTemperature = "\(currentTemperature) °C"
         self.description = description
-        self.minTemperature = "\(minTemperature)"
-        self.maxTemperature = "\(maxTemperature)"
+        self.minTemperature = "\(minTemperature) °C"
+        self.maxTemperature = "\(maxTemperature) °C"
         self.todayDate = stringFrom(Date())
     }
     
