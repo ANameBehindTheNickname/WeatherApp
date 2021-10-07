@@ -16,6 +16,7 @@ final class TodayWeatherVCTests: XCTestCase {
         sut.getWeatherCompletion(.success(viewModel))
         
         XCTAssertEqual(sut.weatherView.locationLabel.text, viewModel.location)
+        XCTAssertEqual(sut.weatherView.dateLabel.text, viewModel.todayDate)
         XCTAssertEqual(sut.weatherView.currentTempLabel.text, "\(viewModel.currentTemperature)")
         XCTAssertEqual(sut.weatherView.minTempLabel.text, "\(viewModel.minTemperature)")
         XCTAssertEqual(sut.weatherView.maxTempLabel.text, "\(viewModel.maxTemperature)")

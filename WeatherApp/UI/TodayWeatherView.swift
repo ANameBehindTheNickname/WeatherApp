@@ -8,6 +8,7 @@ import UIKit
 final class TodayWeatherView: UIView {
     @IBOutlet private(set) var contentView: UIView!
     @IBOutlet private(set) var locationLabel: UILabel!
+    @IBOutlet private(set) var dateLabel: UILabel!
     @IBOutlet private(set) var currentTempLabel: UILabel!
     @IBOutlet private(set) var minTempLabel: UILabel!
     @IBOutlet private(set) var maxTempLabel: UILabel!
@@ -24,6 +25,7 @@ final class TodayWeatherView: UIView {
     
     func set(_ viewModel: WeatherViewModel) {
         locationLabel.text = viewModel.location
+        dateLabel.text = viewModel.todayDate
         currentTempLabel.text = viewModel.currentTemperature
         minTempLabel.text = viewModel.minTemperature
         maxTempLabel.text = viewModel.maxTemperature
