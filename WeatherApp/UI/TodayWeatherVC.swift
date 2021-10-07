@@ -35,7 +35,9 @@ final class TodayWeatherVC: UIViewController {
     func getWeatherCompletion(_ result: Result<WeatherViewModel, Error>) -> Void {
         switch result {
         case .success(let viewModel):
-            weatherView.set(viewModel)
+            DispatchQueue.main.async {
+                self.weatherView.set(viewModel)
+            }
         case .failure(let error):
             print(error.localizedDescription)
         }

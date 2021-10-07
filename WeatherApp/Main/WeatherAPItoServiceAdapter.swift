@@ -14,7 +14,14 @@ final class WeatherAPItoServiceAdapter: WeatherService {
     
     func getTodayWeather(completion: @escaping (Result<WeatherViewModel, Error>) -> Void) {
         weatherAPI.getCurrentWeather { weather in
-            completion(.success(.init(location: weather.location, currentTemperature: weather.currentTemperature, minTemperature: weather.minTemperature, maxTemperature: weather.maxTemperature)))
+            completion(.success(
+                        .init(location: weather.location,
+                              currentTemperature: weather.currentTemperature,
+                              description: weather.description,
+                              minTemperature: weather.minTemperature,
+                              maxTemperature: weather.maxTemperature
+                        ))
+            )
         }
     }
 }

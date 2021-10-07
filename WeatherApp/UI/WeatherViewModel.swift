@@ -9,12 +9,14 @@ struct WeatherViewModel {
     let location: String
     var todayDate: String = ""
     let currentTemperature: String
+    let description: String
     let minTemperature: String
     let maxTemperature: String
     
-    init(location: String, currentTemperature: Double, minTemperature: Double, maxTemperature: Double) {
+    init(location: String, currentTemperature: Double, description: String, minTemperature: Double, maxTemperature: Double) {
         self.location = location
         self.currentTemperature = "\(currentTemperature)"
+        self.description = description
         self.minTemperature = "\(minTemperature)"
         self.maxTemperature = "\(maxTemperature)"
         self.todayDate = stringFrom(Date())

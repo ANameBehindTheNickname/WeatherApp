@@ -5,6 +5,7 @@
 
 struct Weather {
     let location: String
+    let description: String
     let currentTemperature: Double
     let minTemperature: Double
     let maxTemperature: Double
