@@ -25,7 +25,6 @@
 		F881E1FE270DC7AC00B31440 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F881E1FD270DC7AC00B31440 /* NetworkManager.swift */; };
 		F881E201270DC97E00B31440 /* WeatherAPItoServiceAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F881E200270DC97E00B31440 /* WeatherAPItoServiceAdapter.swift */; };
 		F881E204270DCA2600B31440 /* OpenWeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F881E203270DCA2600B31440 /* OpenWeatherAPI.swift */; };
-		F88922FD2714383B00D725AB /* LocationProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88922FC2714383B00D725AB /* LocationProviderDelegate.swift */; };
 		F88922FF2714388D00D725AB /* GPSLocationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88922FE2714388D00D725AB /* GPSLocationAdapter.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,7 +61,6 @@
 		F881E1FD270DC7AC00B31440 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		F881E200270DC97E00B31440 /* WeatherAPItoServiceAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPItoServiceAdapter.swift; sourceTree = "<group>"; };
 		F881E203270DCA2600B31440 /* OpenWeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherAPI.swift; sourceTree = "<group>"; };
-		F88922FC2714383B00D725AB /* LocationProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationProviderDelegate.swift; sourceTree = "<group>"; };
 		F88922FE2714388D00D725AB /* GPSLocationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSLocationAdapter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,7 +129,6 @@
 			isa = PBXGroup;
 			children = (
 				F8487A66270F129900F2286D /* LocationProvider.swift */,
-				F88922FC2714383B00D725AB /* LocationProviderDelegate.swift */,
 				F881E1F0270DA00E00B31440 /* WeatherService.swift */,
 				F881E1F2270DA05700B31440 /* WeatherViewModel.swift */,
 				F881E1BF270D7CEB00B31440 /* TodayWeatherVC.swift */,
@@ -274,7 +271,6 @@
 				F8487A67270F129900F2286D /* LocationProvider.swift in Sources */,
 				F881E1F1270DA00E00B31440 /* WeatherService.swift in Sources */,
 				F881E1F3270DA05700B31440 /* WeatherViewModel.swift in Sources */,
-				F88922FD2714383B00D725AB /* LocationProviderDelegate.swift in Sources */,
 				F8487A6D270F1E4900F2286D /* OpenWeatherResponse.swift in Sources */,
 				F881E1FE270DC7AC00B31440 /* NetworkManager.swift in Sources */,
 				F881E1FC270DC7A800B31440 /* NetworkProvider.swift in Sources */,

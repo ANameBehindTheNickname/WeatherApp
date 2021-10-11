@@ -30,7 +30,10 @@ final class TodayWeatherVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        locationProvider.startProvidingLocation()
+        locationProvider.startProvidingLocation { [weak self] lat, lon in
+            guard let self = self else { return }
+            self.weatherService.getTodayWeather(lat: lat, lon: lon, completion: self.getWeatherCompletion)
+        }
     }
     
     func getWeatherCompletion(_ result: Result<WeatherViewModel, Error>) -> Void {
@@ -42,11 +45,5 @@ final class TodayWeatherVC: UIViewController {
         case .failure(let error):
             print(error.localizedDescription)
         }
-    }
-}
-
-extension TodayWeatherVC: LocationProviderDelegate {
-    func didUpdateLocation(lat: Double, lon: Double) {
-        weatherService.getTodayWeather(lat: lat, lon: lon, completion: getWeatherCompletion)
     }
 }

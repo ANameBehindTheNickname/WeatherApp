@@ -17,7 +17,6 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let weatherService = WeatherAPItoServiceAdapter(weatherAPI: weatherAPI)
         let locationProvider = GPSLocationAdapter(locationManager: .init())
         let vc = TodayWeatherVC(weatherService: weatherService, locationProvider: locationProvider)
-        locationProvider.delegate = vc
         
         let window = UIWindow(windowScene: windowScene)
         window.rootViewController = vc

@@ -7,7 +7,7 @@ import CoreLocation
 
 final class GPSLocationAdapter: NSObject {
     private let locationManager: CLLocationManager
-    weak var delegate: LocationProviderDelegate?
+    private var locationFoundCompletion: ((_ lat: Double, _ lon: Double) -> Void)?
     
     init(locationManager: CLLocationManager) {
         self.locationManager = locationManager
@@ -17,9 +17,10 @@ final class GPSLocationAdapter: NSObject {
 }
 
 extension GPSLocationAdapter: LocationProvider {
-    func startProvidingLocation() {
+    func startProvidingLocation(completion: @escaping (_ lat: Double, _ lon: Double) -> Void) {
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+        locationFoundCompletion = completion
     }
 }
 
@@ -28,7 +29,7 @@ extension GPSLocationAdapter: CLLocationManagerDelegate {
         guard let location = locations.first else { return }
         let lat = location.coordinate.latitude
         let lon = location.coordinate.longitude
-
-        delegate?.didUpdateLocation(lat: lat, lon: lon)
+        
+        locationFoundCompletion?(lat, lon)
     }
 }
