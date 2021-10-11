@@ -18,7 +18,7 @@ final class WeatherAPItoServiceAdapter: WeatherService {
         }
     }
     
-    func getTodayWeather(lat: String, lon: String, completion: @escaping (Result<WeatherViewModel, Error>) -> Void) {
+    func getTodayWeather(lat: Double, lon: Double, completion: @escaping (Result<WeatherViewModel, Error>) -> Void) {
         weatherAPI.getCurrentWeather(lat: lat, lon: lon) { [weak self] weather in
             self?.weatherAPICompletion(weather, completion: completion)
         }

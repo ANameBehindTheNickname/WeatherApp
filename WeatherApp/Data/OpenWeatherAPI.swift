@@ -17,7 +17,7 @@ final class OpenWeatherAPI: WeatherAPI {
         getCurrentWeather(from: url, completion: completion)
     }
     
-    func getCurrentWeather(lat: String, lon: String, completion: @escaping (Weather) -> Void) {
+    func getCurrentWeather(lat: Double, lon: Double, completion: @escaping (Weather) -> Void) {
         let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(lon)&units=metric")!
         getCurrentWeather(from: url, completion: completion)
     }
