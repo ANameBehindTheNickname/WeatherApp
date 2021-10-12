@@ -6,21 +6,26 @@
 import UIKit
 
 final class ViewControllerFactory {
-    func todayWeatherVC() -> UIViewController {
-        let session = URLSession(configuration: .default)
-        let weatherAPI = OpenWeatherAPI(networkProvider: NetworkManager(session: session))
-        let weatherService = WeatherAPItoServiceAdapter(weatherAPI)
+    func todayWeatherVC(_ weatherService: WeatherService) -> TodayWeatherVC {
         let locationProvider = GPSLocationAdapter(locationManager: .init())
         return TodayWeatherVC(weatherService, locationProvider)
     }
     
-    func cityAlertVC() -> UIViewController {
-        let alertController = UIAlertController(title: "Add city", message: "Enter city name", preferredStyle: .alert)
-        let addCityAction = UIAlertAction(title: "Add city", style: .default)
+    func cityAlertVC(_ addCityCompletion: @escaping (String) -> Void) -> UIViewController {
+        let alertController = UIAlertController(title: "Add city", message: "", preferredStyle: .alert)
+        alertController.addTextField {
+            $0.placeholder = "CityName"
+        }
+        
+        let addCityAction = UIAlertAction(title: "Add", style: .default) { _ in
+            guard let firstTextField = alertController.textFields?.first,
+                  let cityName = firstTextField.text else { return }
+            
+            addCityCompletion(cityName)
+        }
+        
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-
         [addCityAction, cancelAction].forEach { alertController.addAction($0) }
-
         return alertController
     }
 }
