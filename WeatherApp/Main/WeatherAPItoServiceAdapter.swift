@@ -8,7 +8,7 @@ import Foundation
 final class WeatherAPItoServiceAdapter: WeatherService {
     private let weatherAPI: WeatherAPI
     
-    init(weatherAPI: WeatherAPI) {
+    init(_ weatherAPI: WeatherAPI) {
         self.weatherAPI = weatherAPI
     }
     

@@ -13,7 +13,7 @@ final class TodayWeatherVC: UIViewController {
     private var weatherService: WeatherService
     private var locationProvider: LocationProvider
     
-    init(weatherService: WeatherService, locationProvider: LocationProvider) {
+    init(_ weatherService: WeatherService, _ locationProvider: LocationProvider) {
         self.weatherService = weatherService
         self.locationProvider = locationProvider
         super.init(nibName: nil, bundle: nil)

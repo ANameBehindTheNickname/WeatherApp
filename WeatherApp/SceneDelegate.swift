@@ -16,9 +16,9 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let session = URLSession(configuration: .default)
         let weatherAPI = OpenWeatherAPI(networkProvider: NetworkManager(session: session))
-        let weatherService = WeatherAPItoServiceAdapter(weatherAPI: weatherAPI)
+        let weatherService = WeatherAPItoServiceAdapter(weatherAPI)
         let locationProvider = GPSLocationAdapter(locationManager: .init())
-        let vc = TodayWeatherVC(weatherService: weatherService, locationProvider: locationProvider)
+        let vc = TodayWeatherVC(weatherService, locationProvider)
         
         let navigationController = UINavigationController(rootViewController: vc)
         navigationController.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
