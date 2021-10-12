@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		F8487A67270F129900F2286D /* LocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8487A66270F129900F2286D /* LocationProvider.swift */; };
 		F8487A6D270F1E4900F2286D /* OpenWeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8487A6C270F1E4900F2286D /* OpenWeatherResponse.swift */; };
+		F86844322715713200E3F782 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86844312715713200E3F782 /* ViewControllerFactory.swift */; };
+		F86844342715717900E3F782 /* BarButtonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86844332715717900E3F782 /* BarButtonController.swift */; };
 		F881E1BC270D7CEB00B31440 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F881E1BB270D7CEB00B31440 /* AppDelegate.swift */; };
 		F881E1BE270D7CEB00B31440 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F881E1BD270D7CEB00B31440 /* SceneDelegate.swift */; };
 		F881E1C0270D7CEB00B31440 /* TodayWeatherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F881E1BF270D7CEB00B31440 /* TodayWeatherVC.swift */; };
@@ -41,6 +43,8 @@
 /* Begin PBXFileReference section */
 		F8487A66270F129900F2286D /* LocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationProvider.swift; sourceTree = "<group>"; };
 		F8487A6C270F1E4900F2286D /* OpenWeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherResponse.swift; sourceTree = "<group>"; };
+		F86844312715713200E3F782 /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
+		F86844332715717900E3F782 /* BarButtonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarButtonController.swift; sourceTree = "<group>"; };
 		F881E1B8270D7CEB00B31440 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F881E1BB270D7CEB00B31440 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F881E1BD270D7CEB00B31440 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -134,6 +138,7 @@
 				F881E1BF270D7CEB00B31440 /* TodayWeatherVC.swift */,
 				F881E1EE270D87EC00B31440 /* TodayWeatherView.swift */,
 				F881E1EC270D839300B31440 /* TodayWeatherView.xib */,
+				F86844332715717900E3F782 /* BarButtonController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -152,6 +157,7 @@
 		F881E1FF270DC96900B31440 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				F86844312715713200E3F782 /* ViewControllerFactory.swift */,
 				F881E200270DC97E00B31440 /* WeatherAPItoServiceAdapter.swift */,
 				F88922FE2714388D00D725AB /* GPSLocationAdapter.swift */,
 			);
@@ -279,8 +285,10 @@
 				F881E1EF270D87EC00B31440 /* TodayWeatherView.swift in Sources */,
 				F881E1BC270D7CEB00B31440 /* AppDelegate.swift in Sources */,
 				F881E1FA270DC79E00B31440 /* WeatherAPI.swift in Sources */,
+				F86844342715717900E3F782 /* BarButtonController.swift in Sources */,
 				F881E1BE270D7CEB00B31440 /* SceneDelegate.swift in Sources */,
 				F881E201270DC97E00B31440 /* WeatherAPItoServiceAdapter.swift in Sources */,
+				F86844322715713200E3F782 /* ViewControllerFactory.swift in Sources */,
 				F881E1F8270DC79400B31440 /* Weather.swift in Sources */,
 				F881E204270DCA2600B31440 /* OpenWeatherAPI.swift in Sources */,
 			);
