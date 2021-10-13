@@ -34,7 +34,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         
         buttonController.forecastCallback = {
-            print("TODO: - not implemented, show ForecastVC")
+            vc.show(vcFactory.forecastVC(), sender: vc)
         }
         
         vc.navigationItem.rightBarButtonItems = buttonController.barButtons

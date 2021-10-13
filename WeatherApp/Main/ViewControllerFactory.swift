@@ -11,6 +11,10 @@ final class ViewControllerFactory {
         return TodayWeatherVC(weatherService, locationProvider)
     }
     
+    func forecastVC() -> UIViewController {
+        ForecastVC()
+    }
+    
     func cityAlertVC(_ addCityCompletion: @escaping (String) -> Void) -> UIViewController {
         let alertController = UIAlertController(title: "Add city", message: "", preferredStyle: .alert)
         alertController.addTextField {

@@ -41,7 +41,7 @@ final class TodayWeatherView: UIView {
     
     private func commonInit() {
         let nibName = String(describing: TodayWeatherView.self)
-        Bundle.main.loadNibNamed(nibName, owner: self, options: nil)
+        Bundle.main.loadNibNamed(nibName, owner: self)
         addSubview(contentView)
         contentView.frame = bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
