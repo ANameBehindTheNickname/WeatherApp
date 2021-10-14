@@ -11,8 +11,8 @@ final class ViewControllerFactory {
         return TodayWeatherVC(weatherService, locationProvider)
     }
     
-    func forecastVC() -> UIViewController {
-        ForecastVC()
+    func forecastVC(for city: String, _ forecastService: ForeCastService) -> UIViewController {
+        ForecastVC(city: city, forecastService)
     }
     
     func cityAlertVC(_ addCityCompletion: @escaping (String) -> Void) -> UIViewController {

@@ -10,4 +10,5 @@ struct Weather {
     let currentTemperature: Double
     let minTemperature: Double
     let maxTemperature: Double
+    var timestamp: String?
 }

@@ -6,11 +6,11 @@
 import UIKit
 
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
+    
     var window: UIWindow?
     
     private let buttonController = BarButtonController()
-
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let vcFactory = ViewControllerFactory()
@@ -34,7 +34,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         
         buttonController.forecastCallback = {
-            vc.show(vcFactory.forecastVC(), sender: vc)
+            vc.show(vcFactory.forecastVC(for: vc.city, weatherService), sender: vc)
         }
         
         vc.navigationItem.rightBarButtonItems = buttonController.barButtons

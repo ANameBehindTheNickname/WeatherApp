@@ -10,6 +10,7 @@ final class TodayWeatherVC: UIViewController {
         view as! TodayWeatherView
     }
     
+    var city = ""
     private var weatherService: WeatherService
     private var locationProvider: LocationProvider
     
@@ -40,6 +41,7 @@ final class TodayWeatherVC: UIViewController {
         switch result {
         case .success(let viewModel):
             DispatchQueue.main.async {
+                self.city = viewModel.location
                 self.weatherView.set(viewModel)
             }
         case .failure(let error):

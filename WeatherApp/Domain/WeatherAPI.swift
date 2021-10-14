@@ -10,4 +10,5 @@ protocol WeatherAPI {
     func getCurrentWeather(for city: String, completion: @escaping (Weather) -> Void)
     func getCurrentWeather(lat: Double, lon: Double, completion: @escaping (Weather) -> Void)
     func getWeatherIconData(iconId: String, completion: @escaping (Data) -> Void)
+    func forecast(for city: String, completion: @escaping ([Weather]) -> Void)
 }

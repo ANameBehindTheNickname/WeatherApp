@@ -24,6 +24,7 @@ final class ForecastView: UIView {
     
     func set(with viewModels: [ForecastViewModel]) {
         self.viewModels = viewModels
+        collectionView.reloadData()
     }
     
     private func commonInit() {

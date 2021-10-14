@@ -6,7 +6,7 @@
 import Foundation
 
 final class WeatherAPItoServiceAdapter: WeatherService {
-    private let weatherAPI: WeatherAPI
+    let weatherAPI: WeatherAPI
     
     init(_ weatherAPI: WeatherAPI) {
         self.weatherAPI = weatherAPI
@@ -37,5 +37,38 @@ final class WeatherAPItoServiceAdapter: WeatherService {
         }
 
         completion(.success(viewModel))
+    }
+}
+
+extension WeatherAPItoServiceAdapter: ForeCastService {
+    struct Forecast {
+        let day: String
+        let time: String
+        let temperature: Double
+    }
+    
+    func getForecast(for city: String, completion: @escaping (Result<[ForecastViewModel], Error>) -> Void) {
+        weatherAPI.forecast(for: city) { weathers in
+            let forecastWeathers: [Forecast] = weathers.map {
+                let day = String($0.timestamp?.prefix(while: { $0 != " "}) ?? "")
+                let time = String($0.timestamp?.drop(while: { $0 != " " }) ?? "")
+                return .init(day: day, time: time, temperature: $0.currentTemperature)
+            }
+
+            let viewModels = forecastWeathers.reduce([ForecastViewModel]()) { acc, forecast in
+                let stubVM = ForecastViewModel(day: forecast.day, hourlyWeatherViewModels: [])
+                if acc.last?.day == stubVM.day {
+                    var lastHourlyWeathertVMs = acc.last?.hourlyWeatherViewModels
+                    lastHourlyWeathertVMs?.append(.init(time: forecast.time, temperature: forecast.temperature))
+                    
+                    return acc.dropLast() + [.init(day: forecast.day, hourlyWeatherViewModels: lastHourlyWeathertVMs ?? [])]
+                }
+                
+                return acc + [.init(day: forecast.day,
+                                    hourlyWeatherViewModels: [.init(time: forecast.time, temperature: forecast.temperature)])]
+            }
+            
+            completion(.success(viewModels))
+        }
     }
 }

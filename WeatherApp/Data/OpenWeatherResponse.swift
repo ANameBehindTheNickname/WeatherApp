@@ -17,5 +17,6 @@ struct OpenWeatherResponse: Decodable {
     
     let weather: [Weather]
     let main: Main
-    let name: String
+    let name: String?
+    let dt_txt: String?
 }

@@ -5,17 +5,18 @@
 
 import UIKit
 
-final class ForecastVC: UIViewController {
-    
-    private let viewModels: [ForecastViewModel] = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"].map {
-        let randomInt = Int.random(in: 0...12)
-        let randomDouble = Double.random(in: 15...30)
-        return .init(day: $0, hourlyWeatherViewModels: [.init(time: "\(randomInt)", temperature: "\(randomDouble)"),
-                                                        .init(time: "\(randomInt)", temperature: "\(randomDouble)"),
-                                                        .init(time: "\(randomInt)", temperature: "\(randomDouble)"),
-                                                        .init(time: "\(randomInt)", temperature: "\(randomDouble)"),
-                                                        .init(time: "\(randomInt)", temperature: "\(randomDouble)"),
-                                                        .init(time: "\(randomInt)", temperature: "\(randomDouble)")])
+final class ForecastVC: UIViewController {    
+    private let city: String
+    private let forecastService: ForeCastService
+
+    init(city: String, _ forecastService: ForeCastService) {
+        self.city = city
+        self.forecastService = forecastService
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     var forecastView: ForecastView {
@@ -29,6 +30,15 @@ final class ForecastVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        forecastView.set(with: viewModels)
+        forecastService.getForecast(for: city) { [weak self] result in
+            switch result {
+            case .success(let forecastVMs):
+                DispatchQueue.main.async {
+                    self?.forecastView.set(with: forecastVMs)
+                }
+            case .failure(let error):
+                print("Couldn't get forecast viewModel - \(error.localizedDescription)")
+            }
+        }
     }
 }
