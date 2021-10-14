@@ -33,7 +33,7 @@ final class WeatherAPItoServiceAdapter: WeatherService {
         )
 
         weatherAPI.getWeatherIconData(iconId: weather.iconId) { iconData in
-            viewModel.weatherIconData = iconData
+            viewModel.imageData = iconData
         }
 
         completion(.success(viewModel))
@@ -62,7 +62,7 @@ extension WeatherAPItoServiceAdapter: ForeCastService {
                     var lastHourlyWeathertVMs = acc.last?.hourlyWeatherViewModels
                     let hourlyVM = ForecastViewModel.HourlyWeatherViewModel(time: forecast.time, temperature: forecast.temperature)
                     self?.weatherAPI.getWeatherIconData(iconId: forecast.iconId) { iconData in
-                        hourlyVM.weatherIconData = iconData
+                        hourlyVM.imageData = iconData
                     }
                     
                     lastHourlyWeathertVMs?.append(hourlyVM)
@@ -72,7 +72,7 @@ extension WeatherAPItoServiceAdapter: ForeCastService {
                 
                 let hourlyVM = ForecastViewModel.HourlyWeatherViewModel(time: forecast.time, temperature: forecast.temperature)
                 self?.weatherAPI.getWeatherIconData(iconId: forecast.iconId) { iconData in
-                    hourlyVM.weatherIconData = iconData
+                    hourlyVM.imageData = iconData
                 }
                 
                 return acc + [.init(day: forecast.day,
