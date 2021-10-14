@@ -6,14 +6,30 @@
 import UIKit
 
 struct ForecastViewModel {
-    struct HourlyWeatherViewModel {
+    final class HourlyWeatherViewModel {
         let time: String
-        let weatherIcon = UIImage(named: "icon")
+        var weatherIconData: Data? {
+            didSet {
+                guard let data = weatherIconData else { return }
+                getImageDataCompletion?(data)
+            }
+        }
+        
         let temperature: String
+        private var getImageDataCompletion: ((Data) -> Void)?
         
         init(time: String, temperature: Double) {
             self.time = time
             self.temperature = "\(temperature)"
+        }
+        
+        func getImageData(completion: @escaping (Data) -> Void) {
+            guard let data = weatherIconData else {
+                getImageDataCompletion = completion
+                return
+            }
+            
+            completion(data)
         }
     }
     

@@ -45,6 +45,7 @@ extension WeatherAPItoServiceAdapter: ForeCastService {
         let day: String
         let time: String
         let temperature: Double
+        let iconId: String
     }
     
     func getForecast(for city: String, completion: @escaping (Result<[ForecastViewModel], Error>) -> Void) {
@@ -52,20 +53,30 @@ extension WeatherAPItoServiceAdapter: ForeCastService {
             let forecastWeathers: [Forecast] = weathers.map {
                 let day = String($0.timestamp?.prefix(while: { $0 != " "}) ?? "")
                 let time = String($0.timestamp?.drop(while: { $0 != " " }) ?? "")
-                return .init(day: day, time: time, temperature: $0.currentTemperature)
+                return .init(day: day, time: time, temperature: $0.currentTemperature, iconId: $0.iconId)
             }
 
-            let viewModels = forecastWeathers.reduce([ForecastViewModel]()) { acc, forecast in
+            let viewModels = forecastWeathers.reduce([ForecastViewModel]()) { [weak self] acc, forecast in
                 let stubVM = ForecastViewModel(day: forecast.day, hourlyWeatherViewModels: [])
                 if acc.last?.day == stubVM.day {
                     var lastHourlyWeathertVMs = acc.last?.hourlyWeatherViewModels
-                    lastHourlyWeathertVMs?.append(.init(time: forecast.time, temperature: forecast.temperature))
+                    let hourlyVM = ForecastViewModel.HourlyWeatherViewModel(time: forecast.time, temperature: forecast.temperature)
+                    self?.weatherAPI.getWeatherIconData(iconId: forecast.iconId) { iconData in
+                        hourlyVM.weatherIconData = iconData
+                    }
+                    
+                    lastHourlyWeathertVMs?.append(hourlyVM)
                     
                     return acc.dropLast() + [.init(day: forecast.day, hourlyWeatherViewModels: lastHourlyWeathertVMs ?? [])]
                 }
                 
+                let hourlyVM = ForecastViewModel.HourlyWeatherViewModel(time: forecast.time, temperature: forecast.temperature)
+                self?.weatherAPI.getWeatherIconData(iconId: forecast.iconId) { iconData in
+                    hourlyVM.weatherIconData = iconData
+                }
+                
                 return acc + [.init(day: forecast.day,
-                                    hourlyWeatherViewModels: [.init(time: forecast.time, temperature: forecast.temperature)])]
+                                    hourlyWeatherViewModels: [hourlyVM])]
             }
             
             completion(.success(viewModels))
