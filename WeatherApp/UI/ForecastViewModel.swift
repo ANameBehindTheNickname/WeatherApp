@@ -11,8 +11,8 @@ struct ForecastViewModel {
         let temperature: String
         
         init(time: String, temperature: Double) {
-            self.time = time
-            self.temperature = "\(temperature)"
+            self.time = String(time.prefix(6))
+            self.temperature = "\(temperature) °C"
         }
     }
     
