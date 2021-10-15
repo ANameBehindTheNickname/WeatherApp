@@ -130,8 +130,6 @@
 				F881E1F6270DC78100B31440 /* Domain */,
 				F881E202270DCA1D00B31440 /* Data */,
 				F881E1FF270DC96900B31440 /* Main */,
-				F881E1BB270D7CEB00B31440 /* AppDelegate.swift */,
-				F881E1BD270D7CEB00B31440 /* SceneDelegate.swift */,
 				F881E1C4270D7CEB00B31440 /* Assets.xcassets */,
 				F881E1C6270D7CEB00B31440 /* LaunchScreen.storyboard */,
 				F881E1C9270D7CEB00B31440 /* Info.plist */,
@@ -155,19 +153,9 @@
 				F8723F89271867C900C2CBAA /* ImageDataGetter.swift */,
 				F8487A66270F129900F2286D /* LocationProvider.swift */,
 				F881E1F0270DA00E00B31440 /* WeatherService.swift */,
-				F881E1F2270DA05700B31440 /* WeatherViewModel.swift */,
-				F881E1BF270D7CEB00B31440 /* TodayWeatherVC.swift */,
-				F881E1EE270D87EC00B31440 /* TodayWeatherView.swift */,
-				F881E1EC270D839300B31440 /* TodayWeatherView.xib */,
 				F86844332715717900E3F782 /* BarButtonController.swift */,
-				F8797F462716D69F00F69B8B /* ForecastViewModel.swift */,
-				F8684435271582E700E3F782 /* ForecastVC.swift */,
-				F86844392715844300E3F782 /* ForecastView.swift */,
-				F8684436271582E700E3F782 /* ForecastView.xib */,
-				F868443D2715889100E3F782 /* ForecastCell.swift */,
-				F868443E2715889100E3F782 /* ForecastCell.xib */,
-				F8684441271599F100E3F782 /* HourlyCell.swift */,
-				F8684442271599F100E3F782 /* HourlyCell.xib */,
+				F8E906AA2719925C0024F854 /* TodayWeather */,
+				F8E906A9271992310024F854 /* Forecast */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -189,6 +177,8 @@
 				F86844312715713200E3F782 /* ViewControllerFactory.swift */,
 				F881E200270DC97E00B31440 /* WeatherAPItoServiceAdapter.swift */,
 				F88922FE2714388D00D725AB /* GPSLocationAdapter.swift */,
+				F881E1BB270D7CEB00B31440 /* AppDelegate.swift */,
+				F881E1BD270D7CEB00B31440 /* SceneDelegate.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -201,6 +191,32 @@
 				F8E94BDF27185B8F000D4D48 /* ForecastResponse.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		F8E906A9271992310024F854 /* Forecast */ = {
+			isa = PBXGroup;
+			children = (
+				F8797F462716D69F00F69B8B /* ForecastViewModel.swift */,
+				F8684435271582E700E3F782 /* ForecastVC.swift */,
+				F86844392715844300E3F782 /* ForecastView.swift */,
+				F8684436271582E700E3F782 /* ForecastView.xib */,
+				F868443D2715889100E3F782 /* ForecastCell.swift */,
+				F868443E2715889100E3F782 /* ForecastCell.xib */,
+				F8684441271599F100E3F782 /* HourlyCell.swift */,
+				F8684442271599F100E3F782 /* HourlyCell.xib */,
+			);
+			path = Forecast;
+			sourceTree = "<group>";
+		};
+		F8E906AA2719925C0024F854 /* TodayWeather */ = {
+			isa = PBXGroup;
+			children = (
+				F881E1F2270DA05700B31440 /* WeatherViewModel.swift */,
+				F881E1BF270D7CEB00B31440 /* TodayWeatherVC.swift */,
+				F881E1EE270D87EC00B31440 /* TodayWeatherView.swift */,
+				F881E1EC270D839300B31440 /* TodayWeatherView.xib */,
+			);
+			path = TodayWeather;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
