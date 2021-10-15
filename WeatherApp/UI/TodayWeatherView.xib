@@ -44,7 +44,7 @@
                     <color key="highlightedColor" systemColor="labelColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nGQ-EA-Hpa">
-                    <rect key="frame" x="76" y="381.5" width="281" height="17"/>
+                    <rect key="frame" x="76" y="386" width="281" height="17"/>
                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                     <nil key="textColor"/>
                     <color key="highlightedColor" systemColor="labelColor"/>
@@ -80,9 +80,9 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="nGQ-EA-Hpa" firstAttribute="top" secondItem="cMt-qC-UtC" secondAttribute="bottom" constant="12" id="6V9-iC-12D"/>
                 <constraint firstItem="qil-rT-2yn" firstAttribute="top" secondItem="fje-Aj-nwK" secondAttribute="bottom" constant="80" id="9Sy-kx-Q1c"/>
                 <constraint firstItem="2ZM-fr-Evg" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="NwC-2Y-LLx"/>
+                <constraint firstItem="nGQ-EA-Hpa" firstAttribute="centerY" secondItem="fje-Aj-nwK" secondAttribute="centerY" id="W6O-sJ-Xb6"/>
                 <constraint firstItem="oPh-oL-nXp" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="18" id="Xgy-zf-iR0"/>
                 <constraint firstItem="nGQ-EA-Hpa" firstAttribute="leading" secondItem="fje-Aj-nwK" secondAttribute="trailing" constant="8" id="dlq-l3-05F"/>
                 <constraint firstItem="2ZM-fr-Evg" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="18" id="dyE-0e-mkv"/>

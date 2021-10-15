@@ -34,7 +34,9 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         
         buttonController.forecastCallback = {
-            vc.show(vcFactory.forecastVC(for: vc.city, weatherService), sender: vc)
+            let forecastVC = vcFactory.forecastVC(for: vc.city, weatherService)
+            forecastVC.title = "Forecast"
+            vc.show(forecastVC, sender: vc)
         }
         
         vc.navigationItem.rightBarButtonItems = buttonController.barButtons
