@@ -14,7 +14,9 @@ final class OpenWeatherAPI: WeatherAPI {
     }
     
     func getCurrentWeather(for city: String, completion: @escaping (Weather) -> Void) {
-        let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(city)&units=metric")!
+        let urlString = "https://api.openweathermap.org/data/2.5/weather?q=\(city)&units=metric"
+        let encodedURLString = addingPercentEncoding(to: urlString)!
+        let url = URL(string: encodedURLString)!
         getCurrentWeather(from: url, completion: completion)
     }
     
@@ -36,7 +38,9 @@ final class OpenWeatherAPI: WeatherAPI {
     }
     
     func forecast(for city: String, completion: @escaping ([Weather]) -> Void) {
-        let url = URL(string: "https://api.openweathermap.org/data/2.5/forecast?q=\(city)&units=metric&appid=\(apiKey)")!
+        let urlString = "https://api.openweathermap.org/data/2.5/forecast?q=\(city)&units=metric&appid=\(apiKey)"
+        let encodedURLString = addingPercentEncoding(to: urlString)!
+        let url = URL(string: encodedURLString)!
         networkProvider.getData(from: url) { result in
             switch result {
             case .success(let weatherData):
@@ -57,6 +61,10 @@ final class OpenWeatherAPI: WeatherAPI {
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    private func addingPercentEncoding(to urlString: String) -> String? {
+        urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
     }
     
     private func getCurrentWeather(from url: URL, completion: @escaping (Weather) -> Void) {
