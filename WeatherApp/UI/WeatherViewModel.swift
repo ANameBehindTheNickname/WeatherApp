@@ -17,8 +17,8 @@ final class WeatherViewModel: ImageDataGetter {
         self.location = location
         self.currentTemperature = "\(currentTemperature) °C"
         self.description = description
-        self.minTemperature = "\(minTemperature) °C"
-        self.maxTemperature = "\(maxTemperature) °C"
+        self.minTemperature = "Min: \(minTemperature) °C"
+        self.maxTemperature = "Max: \(maxTemperature) °C"
         super.init()
         self.todayDate = stringFrom(Date())
     }
