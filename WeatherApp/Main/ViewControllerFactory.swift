@@ -6,9 +6,8 @@
 import UIKit
 
 final class ViewControllerFactory {
-    func todayWeatherVC(_ weatherService: WeatherService) -> TodayWeatherVC {
-        let locationProvider = GPSLocationAdapter(locationManager: .init())
-        return TodayWeatherVC(weatherService, locationProvider)
+    func todayWeatherVC(_ viewModel: TodayWeatherVCViewModel) -> TodayWeatherVC {
+        TodayWeatherVC(viewModel)
     }
     
     func forecastVC(for city: String, _ forecastService: ForeCastService) -> UIViewController {

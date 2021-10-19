@@ -10,13 +10,10 @@ final class TodayWeatherVC: UIViewController {
         view as! TodayWeatherView
     }
     
-    var city = ""
-    private var weatherService: WeatherService
-    private var locationProvider: LocationProvider
+    private let viewModel: TodayWeatherVCViewModel
     
-    init(_ weatherService: WeatherService, _ locationProvider: LocationProvider) {
-        self.weatherService = weatherService
-        self.locationProvider = locationProvider
+    init(_ viewModel: TodayWeatherVCViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -31,21 +28,6 @@ final class TodayWeatherVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        locationProvider.startProvidingLocation { [weak self] lat, lon in
-            guard let self = self else { return }
-            self.weatherService.getTodayWeather(lat: lat, lon: lon, completion: self.getWeatherCompletion)
-        }
-    }
-    
-    func getWeatherCompletion(_ result: Result<WeatherViewModel, Error>) -> Void {
-        switch result {
-        case .success(let viewModel):
-            DispatchQueue.main.async {
-                self.city = viewModel.location
-                self.weatherView.set(viewModel)
-            }
-        case .failure(let error):
-            print(error.localizedDescription)
-        }
+        viewModel.getWeather()
     }
 }
