@@ -13,18 +13,27 @@ final class WeatherAPItoServiceAdapter: WeatherService {
     }
     
     func getTodayWeather(for city: String, completion: @escaping (Result<WeatherViewModel, Error>) -> Void) {
-        weatherAPI.getCurrentWeather(for: city) { [weak self] weather in
-            self?.weatherAPICompletion(weather, completion: completion)
+        weatherAPI.getCurrentWeather(for: city) { [weak self] result in
+            self?.apiCompletion(result, completion: completion)
         }
     }
     
     func getTodayWeather(lat: Double, lon: Double, completion: @escaping (Result<WeatherViewModel, Error>) -> Void) {
-        weatherAPI.getCurrentWeather(lat: lat, lon: lon) { [weak self] weather in
-            self?.weatherAPICompletion(weather, completion: completion)
+        weatherAPI.getCurrentWeather(lat: lat, lon: lon) { [weak self] weatherResult in
+            self?.apiCompletion(weatherResult, completion: completion)
         }
     }
     
-    private func weatherAPICompletion(_ weather: Weather, completion: @escaping (Result<WeatherViewModel, Error>) -> Void) {
+    private func apiCompletion(_ result: Result<Weather, NetworkError>, completion: @escaping (Result<WeatherViewModel, Error>) -> Void) {
+        switch result {
+        case .success(let weather):
+            completion(.success(weatherViewModel(for: weather)))
+        case .failure(let error):
+            completion(.failure(error))
+        }
+    }
+    
+    private func weatherViewModel(for weather: Weather) -> WeatherViewModel {
         let viewModel = WeatherViewModel(location: weather.location,
                                          currentTemperature: weather.currentTemperature,
                                          description: weather.description,
@@ -35,8 +44,8 @@ final class WeatherAPItoServiceAdapter: WeatherService {
         weatherAPI.getWeatherIconData(iconId: weather.iconId) { iconData in
             viewModel.imageData = iconData
         }
-
-        completion(.success(viewModel))
+        
+        return viewModel
     }
 }
 
