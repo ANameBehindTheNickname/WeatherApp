@@ -37,6 +37,7 @@
 		F881E201270DC97E00B31440 /* WeatherAPItoServiceAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F881E200270DC97E00B31440 /* WeatherAPItoServiceAdapter.swift */; };
 		F881E204270DCA2600B31440 /* OpenWeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F881E203270DCA2600B31440 /* OpenWeatherAPI.swift */; };
 		F88922FF2714388D00D725AB /* GPSLocationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88922FE2714388D00D725AB /* GPSLocationAdapter.swift */; };
+		F8917BA5271EEBAC00AB9043 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8917BA4271EEBAC00AB9043 /* NetworkError.swift */; };
 		F8E94BE027185B8F000D4D48 /* ForecastResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E94BDF27185B8F000D4D48 /* ForecastResponse.swift */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +86,7 @@
 		F881E200270DC97E00B31440 /* WeatherAPItoServiceAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPItoServiceAdapter.swift; sourceTree = "<group>"; };
 		F881E203270DCA2600B31440 /* OpenWeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherAPI.swift; sourceTree = "<group>"; };
 		F88922FE2714388D00D725AB /* GPSLocationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSLocationAdapter.swift; sourceTree = "<group>"; };
+		F8917BA4271EEBAC00AB9043 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		F8E94BDF27185B8F000D4D48 /* ForecastResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -167,6 +169,7 @@
 				F881E1F9270DC79E00B31440 /* WeatherAPI.swift */,
 				F881E1FB270DC7A800B31440 /* NetworkProvider.swift */,
 				F881E1FD270DC7AC00B31440 /* NetworkManager.swift */,
+				F8917BA4271EEBAC00AB9043 /* NetworkError.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				F881E1BC270D7CEB00B31440 /* AppDelegate.swift in Sources */,
 				F881E1FA270DC79E00B31440 /* WeatherAPI.swift in Sources */,
 				F86844342715717900E3F782 /* BarButtonController.swift in Sources */,
+				F8917BA5271EEBAC00AB9043 /* NetworkError.swift in Sources */,
 				F8E94BE027185B8F000D4D48 /* ForecastResponse.swift in Sources */,
 				F881E1BE270D7CEB00B31440 /* SceneDelegate.swift in Sources */,
 				F881E201270DC97E00B31440 /* WeatherAPItoServiceAdapter.swift in Sources */,

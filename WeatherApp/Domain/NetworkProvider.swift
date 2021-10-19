@@ -6,5 +6,5 @@
 import Foundation
 
 protocol NetworkProvider {
-    func getData(from url: URL, completion: @escaping (Result<Data, Error>) -> Void)
+    func getData(from url: URL, completion: @escaping (Result<Data, NetworkError>) -> Void)
 }
