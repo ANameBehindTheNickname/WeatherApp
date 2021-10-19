@@ -13,14 +13,14 @@ final class OpenWeatherAPI: WeatherAPI {
         self.networkProvider = networkProvider
     }
     
-    func getCurrentWeather(for city: String, completion: @escaping (Weather) -> Void) {
+    func getCurrentWeather(for city: String, completion: @escaping (Result<Weather, NetworkError>) -> Void) {
         let urlString = "https://api.openweathermap.org/data/2.5/weather?q=\(city)&units=metric"
         let encodedURLString = addingPercentEncoding(to: urlString)!
         let url = URL(string: encodedURLString)!
         getCurrentWeather(from: url, completion: completion)
     }
     
-    func getCurrentWeather(lat: Double, lon: Double, completion: @escaping (Weather) -> Void) {
+    func getCurrentWeather(lat: Double, lon: Double, completion: @escaping (Result<Weather, NetworkError>) -> Void) {
         let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(lon)&units=metric")!
         getCurrentWeather(from: url, completion: completion)
     }
@@ -67,7 +67,7 @@ final class OpenWeatherAPI: WeatherAPI {
         urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
     }
     
-    private func getCurrentWeather(from url: URL, completion: @escaping (Weather) -> Void) {
+    private func getCurrentWeather(from url: URL, completion: @escaping (Result<Weather, NetworkError>) -> Void) {
         let newURL = URL(string: url.absoluteString + "&appid=\(apiKey)")!
         networkProvider.getData(from: newURL) { result in
             switch result {
@@ -81,9 +81,10 @@ final class OpenWeatherAPI: WeatherAPI {
                 let main = weatherResponse.main
                 
                 guard let location = weatherResponse.name else { return }
-                completion(Weather(location: location, iconId: weather.icon, description: weather.description, currentTemperature: main.temp, minTemperature: main.temp_min, maxTemperature: main.temp_max))
+                let weatherModel = Weather(location: location, iconId: weather.icon, description: weather.description, currentTemperature: main.temp, minTemperature: main.temp_min, maxTemperature: main.temp_max)
+                completion(.success(weatherModel))
             case .failure(let error):
-                print(error.localizedDescription)
+                completion(.failure(error))
             }
         }
     }
