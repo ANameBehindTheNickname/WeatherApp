@@ -13,23 +13,23 @@ final class WeatherAPItoServiceAdapter: WeatherService {
     }
     
     func getTodayWeather(for city: String, completion: @escaping (Result<WeatherViewModel, Error>) -> Void) {
-        weatherAPI.getCurrentWeather(for: city) { [weak self] result in
-            self?.apiCompletion(result, completion: completion)
+        weatherAPI.getCurrentWeather(for: city) { [unowned self] weatherResult in
+            completion(mapToViewModelResult(weatherResult))
         }
     }
     
     func getTodayWeather(lat: Double, lon: Double, completion: @escaping (Result<WeatherViewModel, Error>) -> Void) {
-        weatherAPI.getCurrentWeather(lat: lat, lon: lon) { [weak self] weatherResult in
-            self?.apiCompletion(weatherResult, completion: completion)
+        weatherAPI.getCurrentWeather(lat: lat, lon: lon) { [unowned self] weatherResult in
+            completion(mapToViewModelResult(weatherResult))
         }
     }
     
-    private func apiCompletion(_ result: Result<Weather, NetworkError>, completion: @escaping (Result<WeatherViewModel, Error>) -> Void) {
+    func mapToViewModelResult(_ result: Result<Weather, NetworkError>) -> Result<WeatherViewModel, Error> {
         switch result {
         case .success(let weather):
-            completion(.success(weatherViewModel(for: weather)))
+            return .success(weatherViewModel(for: weather))
         case .failure(let error):
-            completion(.failure(error))
+            return .failure(error)
         }
     }
     
