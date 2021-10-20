@@ -28,6 +28,6 @@ final class TodayWeatherVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.getWeather()
+        viewModel.getWeatherForCurrentLocation()
     }
 }

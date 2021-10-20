@@ -6,8 +6,9 @@
 import Foundation
 
 final class TodayWeatherVCViewModel {
-    var city = ""
+    private(set) var city = ""
     var getWeatherCompletion: ((Result<WeatherViewModel, Error>) -> Void)?
+    
     private var weatherService: WeatherService
     private var locationProvider: LocationProvider
     
@@ -16,7 +17,7 @@ final class TodayWeatherVCViewModel {
         self.locationProvider = locationProvider
     }
     
-    func getWeather() {
+    func getWeatherForCurrentLocation() {
         locationProvider.startProvidingLocation { [unowned self] lat, lon in
             weatherService.getTodayWeather(lat: lat, lon: lon) {
                 if let location = try? $0.get().location {
@@ -25,6 +26,13 @@ final class TodayWeatherVCViewModel {
                 
                 getWeatherCompletion?($0)
             }
+        }
+    }
+    
+    func getWeather(for city: String) {
+        weatherService.getTodayWeather(for: city) { [unowned self] in
+            self.city = city
+            getWeatherCompletion?($0)
         }
     }
 }

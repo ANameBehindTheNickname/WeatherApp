@@ -41,10 +41,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         navigationController.navigationBar.shadowImage = UIImage()
         
         let addCityAlert = vcFactory.cityAlertVC { [unowned self] city in
-            weatherService.getTodayWeather(for: city) {
-                vcViewModel.city = city
-                vcViewModel.getWeatherCompletion?($0)
-            }
+            vcViewModel.getWeather(for: city)
         }
         
         buttonController.addCityCallback = {
