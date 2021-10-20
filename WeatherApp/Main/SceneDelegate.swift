@@ -30,8 +30,24 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     vc.weatherView.set(weatherViewModel)
                 }
             case .failure(let error):
+                let networkError = error as! NetworkError
+                var message = ""
+                switch networkError {
+                case .client:
+                    message = "Make sure the city is spelled correctly and retry"
+                case .noData:
+                    message = "No weather for this city currently. Please retry later"
+                case .server:
+                    message = "Something broke on a weather provider side. Please retry later"
+                case .undefined(let error):
+                    message = "\(error.localizedDescription)"
+                case .unknown:
+                    message = "What happened is a mistery 😰. Probably its beacause \(error.localizedDescription). Please contact us"
+                }
+                
                 DispatchQueue.main.async {
-                    print(error)
+                    let errorVC = vcFactory.errorAlertVC(message)
+                    vc.showDetailViewController(errorVC, sender: vc)
                 }
             }
         }

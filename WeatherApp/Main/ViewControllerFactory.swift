@@ -31,4 +31,12 @@ final class ViewControllerFactory {
         [addCityAction, cancelAction].forEach { alertController.addAction($0) }
         return alertController
     }
+    
+    func errorAlertVC(_ message: String) -> UIViewController {
+        let alertController = UIAlertController(title: "Oops!", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        alertController.addAction(okAction)
+        
+        return alertController
+    }
 }
