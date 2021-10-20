@@ -6,7 +6,7 @@
 import Foundation
 
 final class TodayWeatherVCViewModel {
-    private(set) var city = ""
+    var city = ""
     var getWeatherCompletion: ((Result<WeatherViewModel, Error>) -> Void)?
     private var weatherService: WeatherService
     private var locationProvider: LocationProvider

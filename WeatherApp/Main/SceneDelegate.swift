@@ -42,6 +42,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let addCityAlert = vcFactory.cityAlertVC { [unowned self] city in
             weatherService.getTodayWeather(for: city) {
+                vcViewModel.city = city
                 vcViewModel.getWeatherCompletion?($0)
             }
         }
