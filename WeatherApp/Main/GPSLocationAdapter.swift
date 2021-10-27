@@ -22,6 +22,10 @@ extension GPSLocationAdapter: LocationProvider {
         locationManager.startUpdatingLocation()
         locationFoundCompletion = completion
     }
+    
+    func stopProvidingLocation() {
+        locationManager.stopUpdatingLocation()
+    }
 }
 
 extension GPSLocationAdapter: CLLocationManagerDelegate {

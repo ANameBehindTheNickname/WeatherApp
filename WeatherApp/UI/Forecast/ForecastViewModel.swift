@@ -3,7 +3,7 @@
 //  Copyright © 2021 ANameBehindTheNickname. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 struct ForecastViewModel {
     final class HourlyWeatherViewModel: ImageDataGetter {

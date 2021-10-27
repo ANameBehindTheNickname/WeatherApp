@@ -5,4 +5,5 @@
 
 protocol LocationProvider {
     func startProvidingLocation(completion: @escaping (_ lat: Double, _ lon: Double) -> Void)
+    func stopProvidingLocation()
 }

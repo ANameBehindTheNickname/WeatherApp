@@ -26,6 +26,8 @@ final class TodayWeatherVCViewModel {
                 
                 getWeatherCompletion?($0)
             }
+            
+            locationProvider.stopProvidingLocation()
         }
     }
     
